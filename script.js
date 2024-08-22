@@ -14,12 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
             currentIndex = index;
         }
 
-        // Calculate the offset to center the current project
-        const projectWidth = 75; // 75% of carousel width
-        const gap = 100 / carousel.offsetWidth * 100; // Convert 100px to percentage
-        const offset = -(currentIndex * (projectWidth + gap) - (100 - projectWidth) / 2);
+        const carouselWidth = carousel.offsetWidth;
+        const projectWidth = carouselWidth * 0.75; // 75% of carousel width
+        const gap = 100; // 100px gap
         
-        carousel.style.transform = `translateX(${offset}%)`;
+        // Calculate the offset to center the current project
+        const totalWidthPerProject = projectWidth + gap;
+        const offset = -(currentIndex * totalWidthPerProject - (carouselWidth - projectWidth) / 2);
+        
+        carousel.style.transform = `translateX(${offset}px)`;
     }
 
     prevButton.addEventListener('click', () => {
@@ -32,4 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize the carousel
     showProject(0);
+
+    // Recenter on window resize
+    window.addEventListener('resize', () => showProject(currentIndex));
 });
