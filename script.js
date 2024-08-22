@@ -13,7 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             currentIndex = index;
         }
-        const offset = -currentIndex * 87.5; // 75% + 12.5% padding
+
+        // Calculate the offset to center the current project
+        const projectWidth = 75; // 75% of carousel width
+        const gap = 100 / carousel.offsetWidth * 100; // Convert 100px to percentage
+        const offset = -(currentIndex * (projectWidth + gap) - (100 - projectWidth) / 2);
+        
         carousel.style.transform = `translateX(${offset}%)`;
     }
 
@@ -24,4 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     nextButton.addEventListener('click', () => {
         showProject(currentIndex + 1);
     });
+
+    // Initialize the carousel
+    showProject(0);
 });
