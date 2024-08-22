@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             currentIndex = index;
         }
-        const offset = -currentIndex * 100;
+        const offset = -currentIndex * 87.5; // 75% + 12.5% padding
         carousel.style.transform = `translateX(${offset}%)`;
     }
 

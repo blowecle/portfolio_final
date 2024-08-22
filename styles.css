@@ -12,22 +12,25 @@ header {
 
 .carousel-container {
     position: relative;
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
     overflow: hidden;
-    aspect-ratio: 16 / 9; /* Maintains a 16:9 aspect ratio */
+    aspect-ratio: 16 / 9;
 }
 
 .carousel {
     display: flex;
     transition: transform 0.5s ease;
     height: 100%;
+    align-items: center;
+    padding-left: 12.5%; /* Centers the first project */
 }
 
 .project {
-    flex: 0 0 100%;
+    flex: 0 0 75%;
     position: relative;
     height: 100%;
+    margin-right: 100px; /* 100px gap between projects */
 }
 
 .project img {
@@ -97,7 +100,16 @@ footer {
 
 @media (max-width: 768px) {
     .carousel-container {
-        width: 90%; /* Adjust for mobile screens */
+        width: 90%;
+    }
+
+    .carousel {
+        padding-left: 7.5%; /* Adjust for mobile */
+    }
+
+    .project {
+        flex: 0 0 85%; /* Slightly larger on mobile for better visibility */
+        margin-right: 50px; /* Smaller gap on mobile */
     }
 
     .overlay {
