@@ -22,15 +22,13 @@ header {
     display: flex;
     transition: transform 0.5s ease;
     height: 100%;
-    align-items: center;
-    padding-left: 12.5%; /* Centers the first project */
+    position: relative;
 }
 
 .project {
-    flex: 0 0 75%;
-    position: relative;
+    position: absolute;
     height: 100%;
-    margin-right: 100px; /* 100px gap between projects */
+    top: 0;
 }
 
 .project img {
@@ -101,15 +99,6 @@ footer {
 @media (max-width: 768px) {
     .carousel-container {
         width: 90%;
-    }
-
-    .carousel {
-        padding-left: 7.5%; /* Adjust for mobile */
-    }
-
-    .project {
-        flex: 0 0 85%; /* Slightly larger on mobile for better visibility */
-        margin-right: 50px; /* Smaller gap on mobile */
     }
 
     .overlay {
