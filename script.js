@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateCarousel() {
         const carouselWidth = carousel.offsetWidth;
-        const projectWidth = carouselWidth * 0.75; // 75% of carousel width
+        const projectWidth = window.innerWidth > 767 ? 500 : carouselWidth; // 500px on desktop, full width on mobile
         const gap = 100; // 100px gap
 
         // Position each project

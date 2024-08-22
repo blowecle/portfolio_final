@@ -12,7 +12,8 @@ header {
 
 .carousel-container {
     position: relative;
-    width: 50%;
+    width: 100%;
+    max-width: 1000px; /* Adjust this value as needed */
     margin: 0 auto;
     overflow: hidden;
     aspect-ratio: 16 / 9;
@@ -29,6 +30,7 @@ header {
     position: absolute;
     height: 100%;
     top: 0;
+    width: 500px; /* Fixed width for desktop */
 }
 
 .project img {
@@ -96,9 +98,13 @@ footer {
     color: #4a4a4a;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .carousel-container {
         width: 90%;
+    }
+
+    .project {
+        width: 100%; /* Full width on mobile */
     }
 
     .overlay {
