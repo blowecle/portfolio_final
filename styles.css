@@ -10,19 +10,24 @@ header {
     padding: 2rem 0;
 }
 
-.projects {
+.carousel-container {
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* Maintains a 16:9 aspect ratio */
+}
+
+.carousel {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
+    transition: transform 0.5s ease;
+    height: 100%;
 }
 
 .project {
+    flex: 0 0 100%;
     position: relative;
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
+    height: 100%;
 }
 
 .project img {
@@ -43,6 +48,27 @@ header {
 
 .project:hover .overlay {
     opacity: 0;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
 }
 
 footer {
@@ -70,6 +96,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .carousel-container {
+        width: 90%; /* Adjust for mobile screens */
+    }
+
     .overlay {
         display: none;
     }
