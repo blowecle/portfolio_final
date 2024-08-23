@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
 
+main {
+    margin-bottom: 10vh;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f8f8f8;
@@ -38,7 +42,7 @@ p {
 }
 
 footer {
-    max-height: 10vh;
+    height: 10vh;
 }
 
 img {
@@ -132,6 +136,7 @@ img {
 footer {
     bottom: 0;
     width: 100%;
+    position: fixed;
     padding: 1rem 0;
     background-color: #f8f8f8;
 }
