@@ -82,10 +82,6 @@ img {
     display: none; /* Remove overlay for active project */
 }
 
-.project.active:hover img {
-    transform: scale(1.1);
-}
-
 .carousel-button {
     position: absolute;
     top: 50%;
@@ -156,5 +152,11 @@ footer {
 
     .social-icons a {
         color: #4a4a4a;
+    }
+}
+
+@media (min-width: 768px) {
+    .project.active:hover img {
+        transform: scale(1.1);
     }
 }
