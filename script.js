@@ -7,19 +7,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateCarousel() {
         const carouselWidth = carousel.offsetWidth;
-        const projectWidth = window.innerWidth > 767 ? 500 : carouselWidth; // 500px on desktop, full width on mobile
         const gap = 100; // 100px gap
+
+        // Remove 'active' class from all projects
+        projects.forEach(project => project.classList.remove('active'));
 
         // Position each project
         projects.forEach((project, index) => {
+            const projectWidth = project.offsetWidth;
             const leftPosition = index * (projectWidth + gap);
             project.style.left = `${leftPosition}px`;
-            project.style.width = `${projectWidth}px`;
         });
 
         // Calculate the offset to center the current project
-        const offset = -(currentIndex * (projectWidth + gap)) + (carouselWidth - projectWidth) / 2;
+        const currentProject = projects[currentIndex];
+        const currentProjectWidth = currentProject.offsetWidth;
+        const offset = -(currentProject.offsetLeft - (carouselWidth - currentProjectWidth) / 2);
         carousel.style.transform = `translateX(${offset}px)`;
+
+        // Add 'active' class to current project
+        currentProject.classList.add('active');
     }
 
     function showProject(index) {

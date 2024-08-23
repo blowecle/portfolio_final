@@ -30,11 +30,16 @@ header {
     position: absolute;
     height: 100%;
     top: 0;
-    width: 500px; /* Fixed width for project div */
+    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    pointer-events: none; /* Disable interactions by default */
+}
+
+.project.active {
+    pointer-events: auto; /* Enable interactions for active project */
 }
 
 .project-image-container {
@@ -63,11 +68,11 @@ header {
     transition: opacity 0.3s ease;
 }
 
-.project:hover .overlay {
+.project.active:hover .overlay {
     opacity: 0;
 }
 
-.project:hover img {
+.project.active:hover img {
     transform: scale(1.1);
 }
 
