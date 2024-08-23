@@ -48,8 +48,8 @@ img {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1000px;
-    max-height: 60vh;
+    max-width: 600px;
+    max-height: 45vh;
     margin: 2rem auto;
     overflow: hidden;
     aspect-ratio: 16 / 9;
