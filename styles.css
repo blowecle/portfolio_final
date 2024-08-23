@@ -130,7 +130,7 @@ footer {
 @media (max-width: 767px) {
     .carousel-container {
         width: 90%;
-        height: 70vh;
+        height: 50vh;
     }
 
     .project {
