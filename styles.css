@@ -137,7 +137,6 @@ footer {
     bottom: 0;
     width: 100%;
     position: fixed;
-    padding: 1rem 0;
     background-color: #f8f8f8;
 }
 
@@ -176,7 +175,7 @@ footer {
 
     .carousel-container {
         width: 90%;
-        height: 30vh;
+        height: 40vh;
     }
 
     .project {
