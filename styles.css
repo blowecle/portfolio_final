@@ -74,12 +74,12 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(128, 128, 128, 0.3);
+    background-color: rgba(128, 128, 128, 0.5);
     transition: opacity 0.3s ease;
 }
 
-.project.active:hover .overlay {
-    opacity: 0;
+.project.active .overlay {
+    display: none; /* Remove overlay for active project */
 }
 
 .project.active:hover img {
