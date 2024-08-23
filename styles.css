@@ -8,6 +8,11 @@ body {
 header {
     text-align: center;
     padding: 2rem 0;
+    max-height: 30vh;
+}
+
+footer {
+    max-height: 10vh;
 }
 
 img {
@@ -18,6 +23,7 @@ img {
     position: relative;
     width: 100%;
     max-width: 1000px;
+    max-height: 60vh;
     margin: 0 auto;
     overflow: hidden;
     aspect-ratio: 16 / 9;
