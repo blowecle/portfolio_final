@@ -177,7 +177,7 @@ p {
 @media (max-width: 767px) {
     .carousel-container {
         width: 90%;
-        height: 50vh;
+        height: 500px;
     }
 
     .project {
