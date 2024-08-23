@@ -10,6 +10,10 @@ header {
     padding: 2rem 0;
 }
 
+img {
+    cursor: pointer;
+}
+
 .carousel-container {
     position: relative;
     width: 100%;
@@ -40,7 +44,6 @@ header {
 
 .project.active {
     pointer-events: auto; /* Enable interactions for active project */
-    cursor: pointer; /* Add pointer cursor for active project */
 }
 
 .project-image-container {
@@ -50,14 +53,13 @@ header {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 .project img {
     height: 100%;
     width: auto;
     object-fit: cover;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .overlay {
@@ -70,13 +72,12 @@ header {
     transition: opacity 0.3s ease;
 }
 
-.project.active:hover .project-image-container {
-    height: 102%; /* Slightly increase the size */
-    width: 102%; /* Slightly increase the size */
-}
-
 .project.active:hover .overlay {
     opacity: 0;
+}
+
+.project.active:hover img {
+    transform: scale(1.1);
 }
 
 .carousel-button {
@@ -135,16 +136,14 @@ footer {
 
     .project img {
         width: 100%;
-        height: auto;
     }
 
     .overlay {
         display: none;
     }
 
-    .project.active:hover .project-image-container {
-        height: 100%; /* Disable size increase on mobile */
-        width: 100%; /* Disable size increase on mobile */
+    .project:hover img {
+        transform: none;
     }
 
     .social-icons a {
