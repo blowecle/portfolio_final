@@ -1,2 +1,8 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "font-src 'self' https://use.fontawesome.com; style-src 'self' https://use.fontawesome.com;"
+    Access-Control-Allow-Origin = "*"
+    
 [build]
   publish = "."
