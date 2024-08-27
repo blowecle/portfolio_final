@@ -61,29 +61,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const backLink = flipCard.querySelector('.flip-card-back a');
 
         if (isMobile) {
-            flipCard.addEventListener('touchstart', function(e) {
+            flipCard.addEventListener('click', function(e) {
                 if (!flipCard.classList.contains('flipped')) {
                     e.preventDefault();
                     flipCard.classList.add('flipped');
                 }
             });
 
-            backLink.addEventListener('touchstart', function(e) {
+            backLink.addEventListener('click', function(e) {
                 e.stopPropagation();
             });
 
             [prevButton, nextButton].forEach(button => {
-                button.addEventListener('touchstart', function() {
+                button.addEventListener('click', function() {
                     projects.forEach(p => p.querySelector('.flip-card').classList.remove('flipped'));
                 });
             });
         }
     });
 
-    // Prevent default touch behavior on mobile
+    // Allow scrolling on mobile
     if (isMobile) {
-        document.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-        }, { passive: false });
+        document.removeEventListener('touchmove', preventDefault, { passive: false });
     }
 });
