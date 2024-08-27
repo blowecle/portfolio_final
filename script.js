@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextButton = document.querySelector('.next');
     const projects = document.querySelectorAll('.project');
     let currentIndex = 0;
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
     function updateCarousel() {
         const carouselWidth = carousel.offsetWidth;
@@ -53,4 +54,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Recenter on window resize
     window.addEventListener('resize', updateCarousel);
+
+    // Flip card functionality
+    projects.forEach(project => {
+        const flipCard = project.querySelector('.flip-card');
+        const backLink = flipCard.querySelector('.flip-card-back a');
+
+        if (isMobile) {
+            flipCard.addEventListener('touchstart', function(e) {
+                if (!flipCard.classList.contains('flipped')) {
+                    e.preventDefault();
+                    flipCard.classList.add('flipped');
+                }
+            });
+
+            backLink.addEventListener('touchstart', function(e) {
+                e.stopPropagation();
+            });
+
+            [prevButton, nextButton].forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    projects.forEach(p => p.querySelector('.flip-card').classList.remove('flipped'));
+                });
+            });
+        }
+    });
+
+    // Prevent default touch behavior on mobile
+    if (isMobile) {
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+    }
 });
