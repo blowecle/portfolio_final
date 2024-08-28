@@ -224,6 +224,18 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .project.active:hover .flip-card-inner {
+        transform: none;
+    }
+
+    .project.active:hover img {
+        transform: none;
+    }
+
     header {
         padding: 2rem 5%;
     }
