@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateCarousel() {
         const carouselWidth = carousel.offsetWidth;
-        const gap = 100; // 100px gap
+        const gap = 100;
 
         projects.forEach(project => project.classList.remove('active'));
 
@@ -54,19 +54,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const flipCardInner = flipCard.querySelector('.flip-card-inner');
         const backLink = flipCard.querySelector('.flip-card-back a');
 
-        function flipCardHandler(e) {
+        let touchStartTime;
+        let touchEndTime;
+
+        function flipCardHandler() {
             if (project.classList.contains('active')) {
-                if (!flipCardInner.classList.contains('flipped')) {
-                    e.preventDefault();
-                    flipCardInner.classList.add('flipped');
-                } else if (!e.target.closest('a')) {
-                    flipCardInner.classList.remove('flipped');
-                }
+                flipCardInner.classList.toggle('flipped');
             }
         }
 
         if (isMobile) {
-            flipCard.addEventListener('touchstart', flipCardHandler);
+            flipCard.addEventListener('touchstart', function(e) {
+                touchStartTime = new Date().getTime();
+            });
+
+            flipCard.addEventListener('touchend', function(e) {
+                touchEndTime = new Date().getTime();
+                if (touchEndTime - touchStartTime < 200) {
+                    flipCardHandler();
+                }
+            });
         } else {
             project.addEventListener('mouseenter', function() {
                 if (project.classList.contains('active')) {
