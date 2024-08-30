@@ -223,12 +223,12 @@ footer {
     color: #4a4a4a;
 }
 
+.flip-card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
 @media (max-width: 768px) {
     .flip-card-inner.flipped {
-        transform: rotateY(180deg);
-    }
-
-    .flip-card.flipped .flip-card-inner {
         transform: rotateY(180deg);
     }
 
@@ -280,10 +280,6 @@ footer {
 
     .social-icons a {
         color: #4a4a4a;
-    }
-
-    .flip-card.flipped .flip-card-inner {
-        transform: rotateY(180deg);
     }
 }
 

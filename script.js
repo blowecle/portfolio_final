@@ -54,23 +54,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const flipCardInner = flipCard.querySelector('.flip-card-inner');
         const backLink = flipCard.querySelector('.flip-card-back a');
 
-        if (isMobile) {
-            flipCard.addEventListener('click', function(e) {
+        function flipCardHandler(e) {
+            if (project.classList.contains('active')) {
                 if (!flipCardInner.classList.contains('flipped')) {
                     e.preventDefault();
                     flipCardInner.classList.add('flipped');
+                } else if (!e.target.closest('a')) {
+                    flipCardInner.classList.remove('flipped');
                 }
-            });
+            }
+        }
 
-            backLink.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-
-            [prevButton, nextButton].forEach(button => {
-                button.addEventListener('click', function() {
-                    projects.forEach(p => p.querySelector('.flip-card-inner').classList.remove('flipped'));
-                });
-            });
+        if (isMobile) {
+            flipCard.addEventListener('touchstart', flipCardHandler);
         } else {
             project.addEventListener('mouseenter', function() {
                 if (project.classList.contains('active')) {
@@ -82,9 +78,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 flipCardInner.classList.remove('flipped');
             });
         }
+
+        backLink.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        [prevButton, nextButton].forEach(button => {
+            button.addEventListener('click', function() {
+                projects.forEach(p => p.querySelector('.flip-card-inner').classList.remove('flipped'));
+            });
+        });
     });
 
     if (isMobile) {
-        document.removeEventListener('touchmove', preventDefault, { passive: false });
+        document.body.style.touchAction = 'pan-y';
     }
 });
