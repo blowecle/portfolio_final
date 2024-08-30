@@ -54,26 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const flipCardInner = flipCard.querySelector('.flip-card-inner');
         const backLink = flipCard.querySelector('.flip-card-back a');
 
-        let touchStartTime;
-        let touchEndTime;
-
-        function flipCardHandler() {
+        function flipCardHandler(e) {
             if (project.classList.contains('active')) {
+                e.preventDefault();
                 flipCardInner.classList.toggle('flipped');
             }
         }
 
         if (isMobile) {
-            flipCard.addEventListener('touchstart', function(e) {
-                touchStartTime = new Date().getTime();
-            });
-
-            flipCard.addEventListener('touchend', function(e) {
-                touchEndTime = new Date().getTime();
-                if (touchEndTime - touchStartTime < 200) {
-                    flipCardHandler();
-                }
-            });
+            flipCard.addEventListener('click', flipCardHandler);
         } else {
             project.addEventListener('mouseenter', function() {
                 if (project.classList.contains('active')) {
