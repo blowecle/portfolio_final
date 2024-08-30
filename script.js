@@ -10,23 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const carouselWidth = carousel.offsetWidth;
         const gap = 100; // 100px gap
 
-        // Remove 'active' class from all projects
         projects.forEach(project => project.classList.remove('active'));
 
-        // Position each project
         projects.forEach((project, index) => {
             const projectWidth = project.offsetWidth;
             const leftPosition = index * (projectWidth + gap);
             project.style.left = `${leftPosition}px`;
         });
 
-        // Calculate the offset to center the current project
         const currentProject = projects[currentIndex];
         const currentProjectWidth = currentProject.offsetWidth;
         const offset = -(currentProject.offsetLeft - (carouselWidth - currentProjectWidth) / 2);
         carousel.style.transform = `translateX(${offset}px)`;
 
-        // Add 'active' class to current project
         currentProject.classList.add('active');
     }
 
@@ -49,22 +45,20 @@ document.addEventListener('DOMContentLoaded', function() {
         showProject(currentIndex + 1);
     });
 
-    // Initialize the carousel
     updateCarousel();
 
-    // Recenter on window resize
     window.addEventListener('resize', updateCarousel);
 
-    // Flip card functionality
     projects.forEach(project => {
         const flipCard = project.querySelector('.flip-card');
+        const flipCardInner = flipCard.querySelector('.flip-card-inner');
         const backLink = flipCard.querySelector('.flip-card-back a');
 
         if (isMobile) {
             flipCard.addEventListener('click', function(e) {
-                if (!flipCard.classList.contains('flipped')) {
+                if (!flipCardInner.classList.contains('flipped')) {
                     e.preventDefault();
-                    flipCard.classList.add('flipped');
+                    flipCardInner.classList.add('flipped');
                 }
             });
 
@@ -74,13 +68,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
             [prevButton, nextButton].forEach(button => {
                 button.addEventListener('click', function() {
-                    projects.forEach(p => p.querySelector('.flip-card').classList.remove('flipped'));
+                    projects.forEach(p => p.querySelector('.flip-card-inner').classList.remove('flipped'));
                 });
+            });
+        } else {
+            project.addEventListener('mouseenter', function() {
+                if (project.classList.contains('active')) {
+                    flipCardInner.classList.add('flipped');
+                }
+            });
+
+            project.addEventListener('mouseleave', function() {
+                flipCardInner.classList.remove('flipped');
             });
         }
     });
 
-    // Allow scrolling on mobile
     if (isMobile) {
         document.removeEventListener('touchmove', preventDefault, { passive: false });
     }
