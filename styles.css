@@ -12,11 +12,17 @@ body {
     min-height: 100vh;
 }
 
+.header-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 0 0 2rem;
+}
+
 header {
-    text-align: left;
-    padding: 2rem 10%;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    margin-right: 2rem; /* Space between header and technologies section */
 }
 
 h1 {
@@ -25,12 +31,16 @@ h1 {
     margin: 0;
     color: #2c3e50;
     letter-spacing: -1px;
+    height: 15vh;
+    display: flex;
+    align-items: center;
 }
 
 h2 {
     font-size: 1.8rem;
     font-weight: 300;
     color: #3498db;
+    margin-top: 0;
 }
 
 p {
@@ -38,6 +48,25 @@ p {
     margin: 0;
     font-size: 1.1rem;
     line-height: 1.8;
+}
+
+.technologies {
+    flex: 1;
+    min-width: 250px; /* Minimum width for the technologies section */
+    margin-top: 15vh;
+}
+
+.technologies h2 {
+    margin-bottom: 1rem;
+}
+
+.technologies ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.technologies li {
+    margin: 0.5rem 0;
 }
 
 main {
@@ -229,8 +258,16 @@ footer {
         transform: none;
     }
 
+    .header-container {
+        flex-direction: column; /* Stack header and technologies on mobile */
+    }
+
+    .technologies{
+        margin-top: 1rem;
+    }
+
     header {
-        padding: 2rem 5%;
+        margin-right: 0; /* Remove margin for mobile */
     }
 
     h1 {
@@ -269,5 +306,11 @@ footer {
 
     .social-icons a {
         color: #4a4a4a;
+    }
+}
+
+@media (min-width: 769px) {
+    .project.active:hover img {
+        transform: scale(1.1);
     }
 }
