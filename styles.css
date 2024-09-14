@@ -153,7 +153,7 @@ footer {
 .flip-card-front img {
     width: auto;
     height: 100%;
-    object-fit: cover; /* Ensure the image covers the area */
+    object-fit: cover;
 }
 
 .flip-card-back {
@@ -269,7 +269,7 @@ footer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 300px; /* Adjust this value based on your content */
+    max-height: 300px;
     max-width: 450px;
 }
 
@@ -281,11 +281,11 @@ footer {
 @media (min-width: 768px) {
     .technologies ul {
         flex-direction: column;
-        max-height: 300px; /* Adjust this value to fit your content */
+        max-height: 300px;
     }
 
     .technologies li {
-        width: calc(50% - 10px); /* 50% width minus some gap */
+        width: calc(50% - 10px);
     }
 }
 
