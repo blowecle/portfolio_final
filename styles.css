@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap');
+@font-face {
+    font-family: 'montserrat';
+    src: url('assets/Montserrat/Montserrat-VariableFont_wght.ttf') ;
+}
+
+@font-face {
+    font-family: 'montserrat-italic';
+    src: url('assets/Montserrat/Montserrat-Italic-VariableFont_wght.ttf')
+}
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'montserrat';
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
@@ -15,9 +24,9 @@ body {
 .header-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
-    padding: 0 0 0 2rem;
+    padding: 0 2rem 0 2rem;
 }
 
 header {
@@ -26,21 +35,29 @@ header {
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'montserrat', serif;
+    font-weight: 200;
     font-size: 3.5rem;
     margin: 0;
     color: #2c3e50;
-    letter-spacing: -1px;
-    height: 15vh;
+    letter-spacing: -2px;
+    text-indent: -0.1em;
+    height: 12vh;
+    width: 375px;
+    border-bottom: 1px solid #2c3e50;
     display: flex;
     align-items: center;
+    /* justify-content: flex-start; */
 }
 
 h2 {
     font-size: 1.8rem;
     font-weight: 300;
     color: #3498db;
-    margin-top: 0;
+}
+
+.title{
+    margin-top: 2vh;
 }
 
 p {
@@ -54,10 +71,6 @@ p {
     flex: 1;
     min-width: 250px; /* Minimum width for the technologies section */
     margin-top: 15vh;
-}
-
-.technologies h2 {
-    margin-bottom: 1rem;
 }
 
 .technologies ul {
@@ -166,7 +179,7 @@ footer {
     align-items: flex-start;
     padding: 20px;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'montserrat';
     line-height: 1.6;
 }
 
@@ -256,11 +269,7 @@ footer {
 .technologies {
     flex: 1;
     min-width: 250px;
-    margin-top: 15vh;
-}
-
-.technologies h2 {
-    margin-bottom: 1rem;
+    margin-top: 12vh;
 }
 
 .technologies ul {
@@ -279,6 +288,13 @@ footer {
 }
 
 @media (min-width: 768px) {
+    .technologies{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
     .technologies ul {
         flex-direction: column;
         max-height: 300px;
@@ -319,6 +335,8 @@ footer {
 
     h1 {
         font-size: 2.5rem;
+        width: 260px;
+        border-bottom: 1px solid #2c3e50;
     }
 
     h2 {
