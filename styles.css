@@ -69,8 +69,7 @@ p {
 
 .technologies {
     flex: 1;
-    min-width: 250px; /* Minimum width for the technologies section */
-    margin-top: 15vh;
+    min-width: 250px;
 }
 
 .technologies ul {
@@ -268,7 +267,6 @@ footer {
 .technologies {
     flex: 1;
     min-width: 250px;
-    margin-top: 12vh;
 }
 
 .technologies ul {
